@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.ticker img {
+    height: 20px;
+    width: 150px;
+}
+
+.ticker {
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    display: flex;
+    flex: 0 0 100%;
+    &:hover .ticker_list {
+        animation-play-state: paused;
+      }
+}
+
+.ticker_list {
+    display: flex;
+    gap: 0px;
+    will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+    animation: scrolling 10s linear infinite;
+}
+
+.ticker_item {
+    width: 150px;
+    height: 20px;
+    margin-right: 0px;
+}
+
+@keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
